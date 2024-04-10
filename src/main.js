@@ -10,12 +10,13 @@ const apiKey = "43226276-a07a0c17e428cfffb021b9b05";
 const form = document.querySelector(".picture-form");
 form.addEventListener("submit", handleSubmit);
 
+const loader = document.querySelector(".loader")
+loader.style.display = 'none';
 const list = document.querySelector(".list");
 
 function handleSubmit(event) {
     event.preventDefault();
     const input = event.target.elements.choose.value;
-
     const params = new URLSearchParams({
     key: apiKey,
     q: input,
@@ -24,7 +25,7 @@ function handleSubmit(event) {
     safesearch: true
     
     })
-    
+    loader.style.display = 'inline-block';
     return fetch(`https://pixabay.com/api/?${params}`)
     .then(response => {
         if (!response.ok) {
@@ -33,6 +34,7 @@ function handleSubmit(event) {
         return response.json()
     })
         .then(data => {
+            loader.style.display = 'none';
         if (data.hits.length === 0) {
         iziToast.info({
             message: "Sorry, there are no images matching your search query. Please try again!"
@@ -43,11 +45,15 @@ function handleSubmit(event) {
         console.log(data);
             list.innerHTML = createMarkup(data.hits)
             lightbox.refresh()
-        form.reset()
+            
+            
     })
     .catch(error => {
         console.log(error);
     })
+    .finally(() => form.reset())
+    
+    
  
     
 }
