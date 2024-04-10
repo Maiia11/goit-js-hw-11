@@ -4,7 +4,6 @@
   | default @import url()
   |============================
 */
-@import url('./reset.css');
 
 .loader {
   width: 48px;
