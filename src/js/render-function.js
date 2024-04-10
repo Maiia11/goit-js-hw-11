@@ -8,7 +8,7 @@ export function createMarkup(arr) {
       src="${webformatURL}"
       data-source="${largeImageURL}"
       alt="${tags}"
-    />
+      />
     <ul class="info-card">
     <li class="info-label" ><span>Likes</span><br>${likes}</li>
     <li class="info-label"><span>Views</span><br>${views}</li>
