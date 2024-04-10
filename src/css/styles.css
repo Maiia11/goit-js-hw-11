@@ -112,3 +112,9 @@ input{
   ul{
     list-style: none;
   }
+
+  .gallery-image{
+    width: 360px;
+    height: 200px;
+    
+  }
