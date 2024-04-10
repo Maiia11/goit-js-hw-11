@@ -10,6 +10,8 @@ const apiKey = "43226276-a07a0c17e428cfffb021b9b05";
 const form = document.querySelector(".picture-form");
 form.addEventListener("submit", handleSubmit);
 
+const list = document.querySelector(".list");
+
 function handleSubmit(event) {
     event.preventDefault();
     const input = event.target.elements.choose.value;
@@ -48,7 +50,13 @@ function handleSubmit(event) {
 }
 
 
-
+function createMarkup(arr) {
+    return arr.map(({ id, webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => 
+        `<li data-id ="${id}">
+        <img src=""
+</li>`) 
+    
+}
 
 
 
