@@ -9,11 +9,13 @@ export function createMarkup(arr) {
       data-source="${largeImageURL}"
       alt="${tags}"
     />
+    <ul class="info-card">
+    <li class="info-label" ><span>Likes</span><br>${likes}</li>
+    <li class="info-label"><span>Views</span><br>${views}</li>
+    <li class="info-label"><span>Comments</span><br>${comments}</li>
+    <li class="info-label"><span>Downloads</span><br>${downloads}</li>
+    </ul>
     </a>
-    <h2>Likes ${likes}</h2>
-    <h2>Views ${views}</h2>
-    <h2>Comments ${comments}</h2>
-    <h2>Downloads ${downloads}</h2>
 </li>`)
         .join("");
     
