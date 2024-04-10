@@ -14,11 +14,11 @@
   height: 48px;
   border-radius: 50%;
   display: inline-block;
-  position: relative;
   border: 3px solid;
   border-color: #FFF #FFF transparent transparent;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
+  
 }
 
 .loader::after,
@@ -26,6 +26,7 @@
   content: '';
   box-sizing: border-box;
   position: absolute;
+  
   left: 0;
   right: 0;
   top: 0;
