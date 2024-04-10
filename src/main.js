@@ -16,14 +16,6 @@ function handleSubmit(event) {
     event.preventDefault();
     const input = event.target.elements.choose.value;
 
-    if (!input.length) {
-        iziToast.info({
-            message: "Sorry, there are no images matching your search query. Please try again!"
-
-        })
-        return
-    }
-
     const params = new URLSearchParams({
     key: apiKey,
     q: input,
@@ -40,16 +32,23 @@ function handleSubmit(event) {
         }
         return response.json()
     })
-    .then(data => {
+        .then(data => {
+        if (data.hits.length === 0) {
+        iziToast.info({
+            message: "Sorry, there are no images matching your search query. Please try again!"
+
+        })
+        return
+    }
         console.log(data);
-        list.innerHTML = createMarkup(data.hits)
+            list.innerHTML = createMarkup(data.hits)
+            lightbox.refresh()
         form.reset()
     })
     .catch(error => {
         console.log(error);
     })
-
-    
+ 
     
 }
 
@@ -73,3 +72,8 @@ function createMarkup(arr) {
         .join("");
     
 }
+
+const lightbox = new SimpleLightbox('.list a', { 
+    captionsData: "alt",
+    captionDelay: 250,
+ });
