@@ -30,7 +30,8 @@ function handleSubmit(event) {
     })
         .then(data => {
             loader.style.display = 'none';
-        if (data.hits.length === 0) {
+            if (data.hits.length === 0) {
+                list.innerHTML = "";
         iziToast.info({
             message: "Sorry, there are no images matching your search query. Please try again!",
             backgroundColor: '#ef4040',
